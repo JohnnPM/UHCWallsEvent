@@ -1,0 +1,5 @@
+name: FallenLegendsEvent
+main: fl.hypixel.event.FLEventMain
+version: 0.0.1-SNAPSHOT
+author: Johnn
+authors: [Eselyx, DualSchix, Anyone else who contributed to the idea.]
