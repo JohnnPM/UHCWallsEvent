@@ -5,7 +5,7 @@
  * Package: fl.hypixel.event.lib
  *
  */
-package fl.hypixel.event.lib;
+package uhc.walls.event.lib;
 
 
 /**

@@ -22,4 +22,4 @@
  * 
  * @author 598Johnn897
  */
-package fl.hypixel.event.util;
+package uhc.walls.event.util;

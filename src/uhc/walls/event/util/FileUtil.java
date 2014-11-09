@@ -1,4 +1,4 @@
-package fl.hypixel.event.util;
+package uhc.walls.event.util;
 
 import java.io.BufferedWriter;
 import java.io.File;

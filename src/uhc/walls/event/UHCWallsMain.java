@@ -5,7 +5,7 @@
  * Package: fl.hypixel.event
  *
  */
-package fl.hypixel.event;
+package uhc.walls.event;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -19,9 +19,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fl.hypixel.event.commands.CommandFramework;
-import fl.hypixel.event.lib.References;
-import fl.hypixel.event.util.EventUtil;
+import uhc.walls.event.commands.CommandFramework;
+import uhc.walls.event.lib.References;
+import uhc.walls.event.util.EventUtil;
 
 /**
  * Main class for Fallen Legends Event. 
@@ -44,7 +44,7 @@ import fl.hypixel.event.util.EventUtil;
  * 
  * @see JavaPlugin
  */
-@SuppressWarnings("all") public class FLEventMain extends JavaPlugin 
+@SuppressWarnings("all") public class UHCWallsMain extends JavaPlugin 
 {
 	/**
 	 * The instance of the plugin, Initialized in the
@@ -54,7 +54,7 @@ import fl.hypixel.event.util.EventUtil;
 	 * 
 	 * @since 0.0.1-SNAPSHOT
 	 */
-	private static FLEventMain instance;
+	private static UHCWallsMain instance;
 	
 	/**
 	 * The method to get the instance of the class
@@ -64,7 +64,7 @@ import fl.hypixel.event.util.EventUtil;
 	 * 
 	 * @return The instance of the main class
 	 */
-	public static final FLEventMain get() 
+	public static final UHCWallsMain get() 
 	{
 		Validate.notNull(instance);
 		return instance;
@@ -94,7 +94,7 @@ import fl.hypixel.event.util.EventUtil;
 	 * 
 	 * @see Logger#getLogger(String)
 	 */
-	private final Logger logger = Logger.getLogger(this.getClass().getSimpleName());
+	private final Logger logger = new FLEventLogger(this);
 	
 	/**
 	 * The file instance for the config

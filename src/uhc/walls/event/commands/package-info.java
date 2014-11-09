@@ -27,4 +27,4 @@
  * 
  * @since 0.0.1-SNAPSHOT
  */
-package fl.hypixel.event.commands;
+package uhc.walls.event.commands;

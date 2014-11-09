@@ -5,7 +5,7 @@
  * Package: com.jkush321.autowalls.util
  *
  */
-package fl.hypixel.event.util;
+package uhc.walls.event.util;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -153,6 +153,8 @@ public class TagUtil {
 		playersWithTags.add(player.getUniqueId());
 		
 		playersWithPrefixes.add(player.getUniqueId());
+		
+		player.setDisplayName(prefix + player.getDisplayName());
 	}
 
 	/**
@@ -190,6 +192,8 @@ public class TagUtil {
 		if (!playersWithSuffixes.contains(player.getUniqueId()) 
 				&& playersWithTags.contains(player.getUniqueId()))
 			playersWithTags.remove(player.getUniqueId());
+		
+		player.setDisplayName(player.getName());
 	}
 
 	/**

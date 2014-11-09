@@ -5,7 +5,7 @@
  * Package: project.party.util
  *
  */
-package fl.hypixel.event.util;
+package uhc.walls.event.util;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -54,6 +54,7 @@ public class ColorUtil {
 		addColor("green", ChatColor.GREEN);
 		addColor("italic", ChatColor.ITALIC);
 		addColor("light_purple", ChatColor.LIGHT_PURPLE);
+		addColor("pink", ChatColor.LIGHT_PURPLE);
 		addColor("magic", ChatColor.MAGIC);
 		addColor("red", ChatColor.RED);
 		addColor("reset", ChatColor.RESET);

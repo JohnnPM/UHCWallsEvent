@@ -5,11 +5,13 @@
  * Package: fl.hypixel.event
  *
  */
-package fl.hypixel.event;
+package uhc.walls.event;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import uhc.walls.event.util.ColorUtil;
 
 /**
  * Manages chat for the server
@@ -32,11 +34,21 @@ public class BasicChatManager implements Listener
 {
 	
 	/**
+	 * The chat event
 	 * 
-	 * @param event
+	 * @author 598Johnn897
+	 * 
+	 * @since 0.0.1-SNAPSHOT
+	 * 
+	 * @param event The chat event variable
 	 */
 	@EventHandler public void onChat(AsyncPlayerChatEvent event)
 	{
+		String doemessage = event.getMessage().replaceAll("(i?)doe", "female deer");
+		event.setMessage(doemessage);
+		
+		event.setFormat(ColorUtil.formatColors("%s<gray>: <white>%s"));
+		
 		
 	}
 }

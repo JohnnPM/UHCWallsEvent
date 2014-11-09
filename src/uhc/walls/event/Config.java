@@ -1,4 +1,4 @@
-package fl.hypixel.event;
+package uhc.walls.event;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package fl.hypixel.event.commands;
+package uhc.walls.event.commands;
  
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import java.util.TreeSet;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.logging.Level;
- 
+
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandException;
@@ -681,6 +681,20 @@ public class CommandFramework {
 			} else {
 				return null;
 			}
+		}
+		
+		public String getFinalArg(final int start)
+		{
+			final StringBuilder bldr = new StringBuilder();
+			for (int i = start; i < args.length; i++)
+			{
+				if (i != start)
+				{
+					bldr.append(" ");
+				}
+				bldr.append(args[i]);
+			}
+			return bldr.toString();
 		}
 	}
  

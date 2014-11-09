@@ -5,7 +5,7 @@
  * Package: us.project.party.statistics
  *
  */
-package fl.hypixel.event;
+package uhc.walls.event;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +19,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import fl.hypixel.event.lib.References;
-import fl.hypixel.event.util.FileUtil;
+import uhc.walls.event.lib.References;
+import uhc.walls.event.util.FileUtil;
 
 /**
  * Chat Statistics for project Party
@@ -38,10 +38,7 @@ import fl.hypixel.event.util.FileUtil;
  * @author 598Johnn897
  */
 public class ChatLogger implements Listener 
-{
-
-	private static FLEventMain plugin = FLEventMain.get();
-	
+{	
 	/**
 	 * Chat is temporaily stored inside of an arraylist 
 	 * until the plugin is disabled then it is
@@ -111,9 +108,9 @@ public class ChatLogger implements Listener
 		SimpleDateFormat format = new SimpleDateFormat("MMMM-dd-yyyy");
 		String dateString = format.format(date);
 
-		File file = new File(FLEventMain.get().getDataFolder() + References.CHAT_FOLDER,
+		File file = new File(UHCWallsMain.get().getDataFolder() + References.CHAT_FOLDER,
 				"chat-" + dateString + References.CHAT_FILE_EXT);
-		File chatDir = new File(plugin.getDataFolder() + References.CHAT_FOLDER);
+		File chatDir = new File(UHCWallsMain.get().getDataFolder() + References.CHAT_FOLDER);
 
 		try 
 		{

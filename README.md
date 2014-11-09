@@ -1,9 +1,10 @@
-FallenLegendsEvent
+UHC Walls Event
 ==================
-This plugin was made for Bukkit 1.7.10 and is made for Fallen Legends. <br>
-<url>http://hypixel.net/threads/fallen-legends-revamped-community-family-guild.195132/</url>
+This plugin was made for Bukkit 1.7.10. <br>
 
-Fallen Legends - Minigame
+Made for an event and credit for walls minigame concept goes to hypixel.
+
+UHC Walls
 ---
 Concept of the game:
 

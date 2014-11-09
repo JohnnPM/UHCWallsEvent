@@ -31,4 +31,4 @@
  * 
  * @since 0.0.1-SNAPSHOT
  */
-package fl.hypixel.event;
+package uhc.walls.event;

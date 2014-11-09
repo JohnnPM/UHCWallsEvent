@@ -5,7 +5,7 @@
  * Package: us.project.party.util
  *
  */
-package fl.hypixel.event.util;
+package uhc.walls.event.util;
 
 import java.util.logging.Level;
 
@@ -14,7 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fl.hypixel.event.commands.CommandFramework.ClassEnumerator;
+import uhc.walls.event.commands.CommandFramework.ClassEnumerator;
 
 /**
  * Utility class for events.

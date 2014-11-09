@@ -1,5 +1,5 @@
-name: FallenLegendsEvent
-main: fl.hypixel.event.FLEventMain
+name: UHCWallsEvent
+main: uhc.walls.event.UHCWallsMain
 version: 0.0.1-SNAPSHOT
 author: Johnn
 authors: [Eselyx, DualSchix, Anyone else who contributed to the idea.]
