@@ -2,7 +2,6 @@ package net.hypixel.api.reply;
 
 import net.minecraft.util.com.google.gson.JsonObject;
 
-
 @SuppressWarnings("unused")
 public class PlayerReply extends AbstractReply {
     private JsonObject player;

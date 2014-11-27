@@ -17,22 +17,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
 /**
- * Util Class for players nameplates. Uses
- * Teams and Scoreboards to add prefixes and
- * suffixes to the players name tag.
- * <p>
- * Created: Aug 3, 2014 <br>
- * Time: 8:42:35 PM <br>
- * Year: 2014
- * <p>
- * Project: AutoWalls <br>
- * File: TagUtil.java <br>
- * Package: com.jkush321.autowalls.util
- * <p>
- * 
- * @since ProjectParty-0.0.1-SNAPSHOT
+ * TagUtil class for changing tags of players <br>
+ * Uses the scoreboard system to add a prefix or <br>
+ * suffix to a players nameplate. Does not modify <br>
+ * chat prefix or suffix.
  * 
  * @author 598Johnn897
+ * @since UHCWalls-0.0.1-SNAPSHOT
+ * @see Scoreboard
  */
 public class TagUtil {
 
@@ -153,8 +145,6 @@ public class TagUtil {
 		playersWithTags.add(player.getUniqueId());
 		
 		playersWithPrefixes.add(player.getUniqueId());
-		
-		player.setDisplayName(prefix + player.getDisplayName());
 	}
 
 	/**
@@ -192,8 +182,6 @@ public class TagUtil {
 		if (!playersWithSuffixes.contains(player.getUniqueId()) 
 				&& playersWithTags.contains(player.getUniqueId()))
 			playersWithTags.remove(player.getUniqueId());
-		
-		player.setDisplayName(player.getName());
 	}
 
 	/**

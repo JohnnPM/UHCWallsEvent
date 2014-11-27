@@ -1,5 +1,7 @@
 name: UHCWallsEvent
+softdepend: [TitleManager]
+prefix: UHCWalls
 main: uhc.walls.event.UHCWallsMain
 version: 0.0.1-SNAPSHOT
 author: Johnn
-authors: [Eselyx, DualSchix, Anyone else who contributed to the idea.]
+authors: [Eselyx, DualSchix, ohyeah1357, Phil999999999, Schottim10, Anyone else who contributed to the idea.]

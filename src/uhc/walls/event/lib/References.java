@@ -1,87 +1,22 @@
-/*
- * Author: 598Johnn897
- * 
- * Date: Oct 25, 2014
- * Package: fl.hypixel.event.lib
- *
- */
 package uhc.walls.event.lib;
 
-
 /**
- * References for various constant variables
- * within the plugin.
- * <p>
- * <b>------------------------</b>
- * <p>
- * Created: Oct 25, 2014 <br>
- * Time: 11:03:49 PM <br>
- * Year: 2014 <p>
- *
- * By: 598Johnn897 <p>
- * 
- * Project: Fallen Legends Guild Event Server Plugin <br>
- * File: References.java <br>
- * Package: fl.hypixel.event.lib <p>
+ * References class for the UHC Walls plugin <br>
+ * Various references to string or numbers here <br>
+ * <url>http://hypixel.net/threads/event-uhc-walls.209966/<url> <p>
+ * Hope to see you at the event! <br>
+ * - Johnn
  * 
  * @author 598Johnn897
+ * @since UHCWalls-0.0.1-SNAPSHOT
  */
 public class References {
 
-	/**
-	 * The folder for putting in chat logging.
-	 * 
-	 * @since 0.0.1-SNAPSHOT
-	 * 
-	 * @author 598Johnn897
-	 */
-	public static final String CHAT_FOLDER = "/chat-logs";
-	
-	/**
-	 * The format for the chat logs.
-	 * 
-	 * @since 0.0.1-SNAPSHOT
-	 * 
-	 * @author 598Johnn897
-	 */
-	public static final String CHAT_FILE_EXT = ".log";
-	
-	/**
-	 * The message to log when the plugin is loading.
-	 * 
-	 * @since 0.0.1-SNAPSHOT
-	 * 
-	 * @author 598Johnn897
-	 */
 	public static final String LOADING_MSG = "Loading...";
-	
-	/**
-	 * The message to log when the plugin starts to enable.
-	 * 
-	 * @since 0.0.1-SNAPSHOT
-	 * 
-	 * @author 598Johnn897
-	 */
-	public static final String ENABLE_START_MSG = "Enabling...";
-	
-	/**
-	 * The message to display when the plugin is 
-	 * enabled and displays the time it took to enable
-	 * 
-	 * @since 0.0.1-SNAPSHOT
-	 * 
-	 * @author 598Johnn897
-	 */
+	public static final String ENABLING_MSG = "Enabling...";
 	public static final String ENABLED_MSG = "Enabled! [%dms]";
+	public static final String DISABLING_MSG = "Disabling...";
+	public static final String DISBALED_MSG = "Disabled! [%dmin]";
 	
-	/**
-	 * The message to display when the plugin when the
-	 * plugin is disabled.
-	 * 
-	 * @since 0.0.1-SNAPSHOT
-	 * 
-	 * @author 598Johnn897
-	 */
-	public static final String DISABLED_MSG = "Disabled! [%dmin]";
-
+	public static final String HYPIXEL_API_KEY = "b2a45b56-2233-4ed8-b8b9-75487f4c1ecd";
 }

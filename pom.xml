@@ -1,21 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>uhc.walls.event</groupId>
 	<artifactId>UHCWallsEvent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<description>Project Party Plugin </description>
+
+	<description>UHC Walls Event Plugin </description>
+
 	<repositories>
 		<repository>
 			<id>spigot-repo</id>
 			<url>http://repo.md-5.net/content/groups/public/</url>
 		</repository>
 	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
 			<version>1.7.10-R0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.craftbukkit</groupId>
+			<artifactId>craftbukkit</artifactId>
+			<version>1.7.10</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
@@ -25,11 +35,18 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.bukkit</groupId>
-			<artifactId>craftbukkit</artifactId>
+			<groupId>net.mc.titlemanager</groupId>
+			<artifactId>titlemanagermc</artifactId>
+			<version>1.1.12</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
 			<version>1.0</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>

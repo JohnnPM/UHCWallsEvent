@@ -1,5 +1,5 @@
-package uhc.walls.event.commands;
- 
+package uhc.walls.event.command;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.annotation.ElementType;
@@ -44,19 +44,21 @@ import org.bukkit.help.IndexHelpTopic;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.SimplePluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
- 
+
 /**
  * Command Framework - CommandFramework <br>
  * The main command framework class used for controlling the framework.
+ * <p>
+ * Modified by Johnn.
  * 
  * @author minnymin3
  */
 public class CommandFramework {
- 
+
 	private final Map<String, Entry<Method, Object>> commandMap = new HashMap<String, Entry<Method, Object>>();
 	private CommandMap map;
 	private final Plugin plugin;
- 
+
 	/**
 	 * Initializes the command framework and sets up the command maps
 	 * 
@@ -78,7 +80,7 @@ public class CommandFramework {
 			}
 		}
 	}
- 
+
 	/**
 	 * Handles commands. Used in the onCommand method in your JavaPlugin class
 	 * 
@@ -124,7 +126,7 @@ public class CommandFramework {
 		defaultCommand(new CommandArgs(sender, cmd, label, args, 0));
 		return true;
 	}
- 
+
 	/**
 	 * Registers all command and completer methods inside of the object. Similar
 	 * to Bukkit's registerEvents method.
@@ -167,11 +169,11 @@ public class CommandFramework {
 			}
 		}
 	}
- 
+
 	/**
-	 * Dynamically registers all commands in project.
-	 * Credit put where credit due :)
-	 *
+	 * Dynamically registers all commands in project. Credit put where credit
+	 * due :)
+	 * 
 	 * @author Not2EXceL
 	 * @see Not2EXceL's CommandAPI
 	 */
@@ -202,19 +204,19 @@ public class CommandFramework {
 						Level.INFO,
 						c.getSimpleName()
 								+ " does not use the default constructor");
- 
+
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
 				plugin.getLogger().log(
 						Level.INFO,
 						c.getSimpleName()
 								+ " does not use the default constructor");
- 
+
 				e.printStackTrace();
 			}
 		}
 	}
- 
+
 	/**
 	 * Registers all the commands under the plugin's help
 	 */
@@ -233,7 +235,7 @@ public class CommandFramework {
 				"Below is a list of all " + plugin.getName() + " commands:");
 		Bukkit.getServer().getHelpMap().addTopic(topic);
 	}
- 
+
 	private void registerCommand(Command command, String label, Method m,
 			Object obj) {
 		Entry<Method, Object> entry = new AbstractMap.SimpleEntry<Method, Object>(
@@ -254,7 +256,7 @@ public class CommandFramework {
 			map.getCommand(cmdLabel).setUsage(command.usage());
 		}
 	}
- 
+
 	private void registerCompleter(String label, Method m, Object obj) {
 		String cmdLabel = label.replace(".", ",").split(",")[0].toLowerCase();
 		if (map.getCommand(cmdLabel) == null) {
@@ -292,12 +294,12 @@ public class CommandFramework {
 			}
 		}
 	}
- 
+
 	private void defaultCommand(CommandArgs args) {
 		args.getSender().sendMessage(
 				args.getLabel() + " is not handled! Oh noes!");
 	}
- 
+
 	/**
 	 * Command Framework - Command <br>
 	 * The command annotation used to designate methods as commands. All methods
@@ -308,7 +310,7 @@ public class CommandFramework {
 	@Target(ElementType.METHOD)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface Command {
- 
+
 		/**
 		 * The name of the command. If it is a sub command then its values would
 		 * be separated by periods. ie. a command that would be a subcommand of
@@ -317,14 +319,14 @@ public class CommandFramework {
 		 * @return
 		 */
 		public String command();
- 
+
 		/**
 		 * Gets the required permission of the command
 		 * 
 		 * @return
 		 */
 		public String permission() default "";
- 
+
 		/**
 		 * The message sent to the player when they do not have permission to
 		 * execute it
@@ -332,7 +334,7 @@ public class CommandFramework {
 		 * @return
 		 */
 		public String noPerm() default "Much Deny. So Wow.";
- 
+
 		/**
 		 * A list of alternate names that the command is executed under. See
 		 * name() for details on how names work
@@ -340,14 +342,14 @@ public class CommandFramework {
 		 * @return
 		 */
 		public String[] aliases() default {};
- 
+
 		/**
 		 * The description that will appear in /help of the command
 		 * 
 		 * @return
 		 */
 		public String description() default "Much Description. So Wow.";
- 
+
 		/**
 		 * The usage that will appear in /help (commandname)
 		 * 
@@ -355,7 +357,7 @@ public class CommandFramework {
 		 */
 		public String usage() default "Much Usage. So Wow.";
 	}
- 
+
 	/**
 	 * Command Framework - Completer <br>
 	 * The completer annotation used to designate methods as command completers.
@@ -367,7 +369,7 @@ public class CommandFramework {
 	@Target(ElementType.METHOD)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface Completer {
- 
+
 		/**
 		 * The command that this completer completes. If it is a sub command
 		 * then its values would be separated by periods. ie. a command that
@@ -376,7 +378,7 @@ public class CommandFramework {
 		 * @return
 		 */
 		String command();
- 
+
 		/**
 		 * A list of alternate names that the completer is executed under. See
 		 * name() for details on how names work
@@ -384,9 +386,9 @@ public class CommandFramework {
 		 * @return
 		 */
 		String[] aliases() default {};
- 
+
 	}
- 
+
 	/**
 	 * Command Framework - BukkitCommand <br>
 	 * An implementation of Bukkit's Command class allowing for registering of
@@ -395,11 +397,11 @@ public class CommandFramework {
 	 * @author minnymin3
 	 */
 	class BukkitCommand extends org.bukkit.command.Command {
- 
+
 		private final Plugin owningPlugin;
 		protected BukkitCompleter completer;
 		private CommandExecutor executor;
- 
+
 		/**
 		 * A slimmed down PluginCommand
 		 * 
@@ -412,20 +414,20 @@ public class CommandFramework {
 			this.owningPlugin = owner;
 			this.usageMessage = "";
 		}
- 
+
 		@Override
 		public boolean execute(CommandSender sender, String commandLabel,
 				String[] args) {
 			boolean success = false;
- 
+
 			if (!owningPlugin.isEnabled()) {
 				return false;
 			}
- 
+
 			if (!testPermission(sender)) {
 				return true;
 			}
- 
+
 			try {
 				success = executor.onCommand(sender, this, commandLabel, args);
 			} catch (Throwable ex) {
@@ -435,17 +437,17 @@ public class CommandFramework {
 								+ owningPlugin.getDescription().getFullName(),
 						ex);
 			}
- 
+
 			if (!success && usageMessage.length() > 0) {
 				for (String line : usageMessage.replace("<command>",
 						commandLabel).split("\n")) {
 					sender.sendMessage(line);
 				}
 			}
- 
+
 			return success;
 		}
- 
+
 		@Override
 		public List<String> tabComplete(CommandSender sender, String alias,
 				String[] args) throws CommandException,
@@ -453,7 +455,7 @@ public class CommandFramework {
 			Validate.notNull(sender, "Sender cannot be null");
 			Validate.notNull(args, "Arguments cannot be null");
 			Validate.notNull(alias, "Alias cannot be null");
- 
+
 			List<String> completions = null;
 			try {
 				if (completer != null) {
@@ -477,23 +479,23 @@ public class CommandFramework {
 						.append(owningPlugin.getDescription().getFullName());
 				throw new CommandException(message.toString(), ex);
 			}
- 
+
 			if (completions == null) {
 				return super.tabComplete(sender, alias, args);
 			}
 			return completions;
 		}
- 
+
 		public CommandExecutor getExecutor() {
 			return executor;
 		}
- 
+
 		public void setExecutor(CommandExecutor executor) {
 			this.executor = executor;
 		}
- 
+
 	}
- 
+
 	/**
 	 * Command Framework - BukkitCompleter <br>
 	 * An implementation of the TabCompleter class allowing for multiple tab
@@ -502,14 +504,14 @@ public class CommandFramework {
 	 * @author minnymin3
 	 */
 	class BukkitCompleter implements TabCompleter {
- 
+
 		private final Map<String, Entry<Method, Object>> completers = new HashMap<String, Entry<Method, Object>>();
- 
+
 		public void addCompleter(String label, Method m, Object obj) {
 			completers.put(label, new AbstractMap.SimpleEntry<Method, Object>(
 					m, obj));
 		}
- 
+
 		@SuppressWarnings("unchecked")
 		@Override
 		public List<String> onTabComplete(CommandSender sender,
@@ -539,7 +541,7 @@ public class CommandFramework {
 			return null;
 		}
 	}
- 
+
 	/**
 	 * Command Framework - CommandArgs <br>
 	 * This class is passed to the command methods and contains various
@@ -548,20 +550,20 @@ public class CommandFramework {
 	 * @author minnymin3
 	 */
 	public class CommandArgs {
- 
+
 		private final CommandSender sender;
 		private final org.bukkit.command.Command command;
 		private final String label, description, permission, no_permission,
 				usage, name;
 		private final String[] args;
- 
+
 		protected CommandArgs(CommandSender sender,
 				org.bukkit.command.Command command, String label,
 				String[] args, int subCommand) {
 			String[] modArgs = new String[args.length - subCommand];
 			System.arraycopy(args, 0 + subCommand, modArgs, 0, args.length
 					- subCommand);
- 
+
 			StringBuilder buffer = new StringBuilder();
 			buffer.append(label);
 			for (int x = 0; x < subCommand; x++) {
@@ -578,7 +580,7 @@ public class CommandFramework {
 			this.usage = command.getUsage();
 			this.name = command.getName();
 		}
- 
+
 		/**
 		 * Gets the command sender
 		 * 
@@ -587,7 +589,7 @@ public class CommandFramework {
 		public CommandSender getSender() {
 			return sender;
 		}
- 
+
 		/**
 		 * Gets the original command object
 		 * 
@@ -596,7 +598,7 @@ public class CommandFramework {
 		public org.bukkit.command.Command getCommand() {
 			return command;
 		}
- 
+
 		/**
 		 * Gets the label including sub command labels of this command
 		 * 
@@ -605,7 +607,7 @@ public class CommandFramework {
 		public String getLabel() {
 			return label;
 		}
- 
+
 		/**
 		 * Gets all the arguments after the command's label. ie. if the command
 		 * label was test.subcommand and the arguments were subcommand foo foo,
@@ -617,7 +619,7 @@ public class CommandFramework {
 		public String[] getArgs() {
 			return args;
 		}
- 
+
 		/**
 		 * The description of the command
 		 * 
@@ -626,7 +628,7 @@ public class CommandFramework {
 		public String getDescription() {
 			return description;
 		}
- 
+
 		/**
 		 * Permission of the command
 		 * 
@@ -635,7 +637,7 @@ public class CommandFramework {
 		public String getPermission() {
 			return permission;
 		}
- 
+
 		/**
 		 * No Permission Message of command
 		 * 
@@ -644,7 +646,7 @@ public class CommandFramework {
 		public String getNoPermission() {
 			return no_permission;
 		}
- 
+
 		/**
 		 * Usage of the command
 		 * 
@@ -653,7 +655,7 @@ public class CommandFramework {
 		public String getUsage() {
 			return usage;
 		}
- 
+
 		/**
 		 * Name of command
 		 * 
@@ -662,7 +664,7 @@ public class CommandFramework {
 		public String getName() {
 			return name;
 		}
- 
+
 		/**
 		 * True if is player command sender
 		 * 
@@ -671,7 +673,7 @@ public class CommandFramework {
 		public boolean isPlayer() {
 			return sender instanceof Player;
 		}
- 
+
 		/**
 		 * @return Player if commandSender is a player else returns false
 		 */
@@ -682,43 +684,31 @@ public class CommandFramework {
 				return null;
 			}
 		}
-		
-		public String getFinalArg(final int start)
-		{
-			final StringBuilder bldr = new StringBuilder();
-			for (int i = start; i < args.length; i++)
-			{
-				if (i != start)
-				{
-					bldr.append(" ");
-				}
-				bldr.append(args[i]);
-			}
-			return bldr.toString();
-		}
 	}
- 
+
 	/**
 	 * CommandFramework - CommandListener <br>
 	 * For a class to use @Command annotation it must implement CommandListener
-	 *
+	 * 
 	 * Added Credit Here Too :)
+	 * 
 	 * @author Not2EXceL
 	 */
 	public interface CommandListener {
- 
+
 	}
- 
+
 	/**
 	 * Command Framework - Util Class
-	 *
-	 *  Added Credit :)
+	 * 
+	 * Added Credit :)
+	 * 
 	 * @author Not2EXceL
 	 */
 	public static class ClassEnumerator {
- 
+
 		private static volatile ClassEnumerator instance;
- 
+
 		public static ClassEnumerator getInstance() {
 			if (instance == null)
 				;
@@ -727,7 +717,7 @@ public class CommandFramework {
 				return instance;
 			}
 		}
- 
+
 		public List<Class<?>> getClassesFromLocation(File location) {
 			final List<Class<?>> classes = new ArrayList<Class<?>>();
 			if (location.isDirectory()) {
@@ -775,7 +765,7 @@ public class CommandFramework {
 			}
 			return classes;
 		}
- 
+
 		@SuppressWarnings("resource")
 		public Class<?>[] getClassesFromThisJar(Object object) {
 			final List<Class<?>> classes = new ArrayList<Class<?>>();
@@ -805,7 +795,7 @@ public class CommandFramework {
 			classes.addAll(getClassesFromLocation(file));
 			return classes.toArray(new Class[classes.size()]);
 		}
- 
+
 		public List<Class<?>> getClassesFromJar(File file,
 				ClassLoader classLoader) {
 			final List<Class<?>> classes = new ArrayList<Class<?>>();

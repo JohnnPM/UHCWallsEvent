@@ -1,0 +1,45 @@
+=== INFO ===
+
+mapName : MapName
+maxPlayers : 80
+
+=== LOBBY ===
+
+lobbyX : -1100.5
+lobbyY : 125.5
+lobbyZ : 486.5
+
+=== SPAWNS ===
+
+desertX : 60
+desertY : 60
+desertZ : 60
+
+jungleX : 60
+jungleY : 60
+jungleZ : 60
+
+mountainX : 60
+mountainY : 60
+mountainZ : 60
+
+taigaX : 60
+taigaY : 60
+taigaZ : 60
+
+oceanX : 60
+oceanY : 60
+oceanZ : 60
+
+swampX : 60
+swampY : 60
+swampZ : 60
+
+savannaX : 60
+savannaY : 60
+savannaZ : 60
+
+darkoakX : 60
+darkoakY : 60
+darkoakZ : 60
+
